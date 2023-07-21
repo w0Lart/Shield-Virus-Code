@@ -12,7 +12,7 @@ function getUserChoice () {
     return "Shield";
   } else if (makeInputLoverCase === "virus") {
     return "Virus";
-  } else if (makeInputLoverCase === "Code") {
+  } else if (makeInputLoverCase === "code") {
     return "Code";
   } else {
     return (alert("Wrong choice!"));
@@ -22,20 +22,37 @@ function getUserChoice () {
 function playRound () {
   let humanPlayer = getUserChoice();
   let computerPlayer = getComputerChoice();
-  if (humanPlayer === "Shield" && computerPlayer === "Virus") {
+  console.log(humanPlayer);
+  console.log(computerPlayer);
+  if (humanPlayer == "Shield" && computerPlayer == "Virus") {
     return ("You win! Shield beat Virus");
-  } else if (humanPlayer === "Shield" && computerPlayer === "Code") {
+  } else if (humanPlayer == "Shield" && computerPlayer == "Code") {
     return ("You loose! Shield loose to Code");
-  } else if (humanPlayer === "Virus" && computerPlayer === "Code") {
+  } else if (humanPlayer == "Virus" && computerPlayer == "Code") {
     return ("You win! Virus beat Code");
-  } else if (humanPlayer === "Virus" && computerPlayer === "Shield") {
+  } else if (humanPlayer == "Virus" && computerPlayer == "Shield") {
     return ("You loose! Virus loose to Shield");
-  }  else if (humanPlayer === "Code" && computerPlayer === "Shield") {
+  }  else if (humanPlayer == "Code" && computerPlayer == "Shield") {
     return ("You win! Code beat Shield");
-  } else if (humanPlayer === "Code" && computerPlayer === "Virus") {
+  } else if (humanPlayer == "Code" && computerPlayer == "Virus") {
     return ("You loose! Code loose to Virus");
+  } else if (humanPlayer == "Shield" && computerPlayer == "Shield") {
+    return ("Draw for shields!")
+  } else if (humanPlayer == "Virus" && computerPlayer == "Virus") {
+    return ("Draw for virus!")
+  } else if (humanPlayer == "Code" && computerPlayer == "Code") {
+    return ("Draw for Code!")
   } else {
     return ("Something went wrong! Let's try again");
   }
 }
 
+function game () {
+  const results = [];
+  for (let i = 1; i <=5; i++) {
+  const roundWinner = playRound();
+  results.push(roundWinner);
+  console.log(`round ${i}: winner ${roundWinner}`);
+  console.log(results);
+  } 
+}
