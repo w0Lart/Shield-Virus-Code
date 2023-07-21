@@ -18,3 +18,24 @@ function getUserChoice () {
     return (alert("Wrong choice!"));
   }
 }
+
+function playRound () {
+  let humanPlayer = getUserChoice();
+  let computerPlayer = getComputerChoice();
+  if (humanPlayer === "Shield" && computerPlayer === "Virus") {
+    return ("You win! Shield beat Virus");
+  } else if (humanPlayer === "Shield" && computerPlayer === "Code") {
+    return ("You loose! Shield loose to Code");
+  } else if (humanPlayer === "Virus" && computerPlayer === "Code") {
+    return ("You win! Virus beat Code");
+  } else if (humanPlayer === "Virus" && computerPlayer === "Shield") {
+    return ("You loose! Virus loose to Shield");
+  }  else if (humanPlayer === "Code" && computerPlayer === "Shield") {
+    return ("You win! Code beat Shield");
+  } else if (humanPlayer === "Code" && computerPlayer === "Virus") {
+    return ("You loose! Code loose to Virus");
+  } else {
+    return ("Something went wrong! Let's try again");
+  }
+}
+
