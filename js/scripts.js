@@ -7,12 +7,13 @@ function getComputerChoice () {
 
 function getUserChoice () {
   let takeUserInput = prompt("Make your choice, type: 'Shield' or 'Virus' or 'Code'");
-  let makeInputLoverCase = takeUserInput.toLowerCase();
-  if (makeInputLoverCase === "shield") {
+  (takeUserInput == null) ? alert("error, you must type something") : takeUserInput = takeUserInput.toLowerCase();
+
+  if (takeUserInput === "shield") {
     return "Shield";
-  } else if (makeInputLoverCase === "virus") {
+  } else if (takeUserInput === "virus") {
     return "Virus";
-  } else if (makeInputLoverCase === "code") {
+  } else if (takeUserInput === "code") {
     return "Code";
   } else {
     return (alert("Wrong choice!"));
@@ -51,8 +52,6 @@ function game () {
   const results = [];
   for (let i = 1; i <=5; i++) {
   const roundWinner = playRound();
-  results.push(roundWinner);
   console.log(`round ${i}: winner ${roundWinner}`);
-  console.log(results);
   } 
 }
