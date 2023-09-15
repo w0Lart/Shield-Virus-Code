@@ -86,21 +86,15 @@ function playRound () {
 
 }
 
-const pressButtonTest = document.querySelector(".test");
-const resultDisplay = document.querySelector(".result");
-
 
 
 function checkWinner() {
   if (roundCounter === 5) {
     if ((counterWin > counterLoose)&&((counterWin>counterDraw)||(counterWin==counterDraw))){
-          resultDisplay.textContent="win";
           console.log("YOU WIN THIS GAME");
         } else if ((counterLoose>counterWin) && ((counterLoose>counterDraw) || (counterLoose == counterDraw))) {
-          resultDisplay.textContent="loose";
           console.log("YOU LOOSE THIS GAME"); 
         } else if (((counterDraw>counterWin) && (counterDraw>counterLoose))||(counterWin==counterLoose)) {
-          resultDisplay.textContent="draw";
           console.log("IT'S A DRAW!");
         } else {
           console.log("not enough rounds");
@@ -108,7 +102,6 @@ function checkWinner() {
   }
 }
 
-pressButtonTest.addEventListener('click',checkWinner);
 
 
 

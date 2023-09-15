@@ -7,7 +7,29 @@
     <script src="js/scripts.js" defer></script>
   </head>
   <body>
-    <div class="test"><button>press me</button></div>
-    <div class="result"></div>
+    <div class="displayResults">
+      <div class="playerBlock">
+        <div>Player</div>
+        <div>0</div>
+      </div>
+      <div class="winner">
+        <div>Who wins this game?</div>
+        <div>-</div>
+      </div>
+      <div class="pcBlock">
+        <div>PC</div>
+        <div>0</div>
+      </div>
+    </div>
+    <div class="chooseButtons">
+      <div><button>Shield</button></div>
+      <div><button>Virus</button></div>
+      <div><button>Code</button></div>
+    </div>
+    <div class="restart">
+      <button type="button" onClick="window.location.reload()">
+        Restart
+     </button>
+    </div>
   </body>
 </html>
