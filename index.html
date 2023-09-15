@@ -7,29 +7,31 @@
     <script src="js/scripts.js" defer></script>
   </head>
   <body>
-    <div class="displayResults">
-      <div class="playerBlock">
-        <div>Player</div>
-        <div>0</div>
+    <div class="core">
+      <div class="displayResults">
+        <div class="playerBlock">
+          <div class="childs">Player</div>
+          <div class="childs">0</div>
+        </div>
+        <div class="winner">
+          <div class="childs">Who wins this game?</div>
+          <div class="childs">-</div>
+        </div>
+        <div class="pcBlock">
+          <div class="childs">PC</div>
+          <div class="childs">0</div>
+        </div>
       </div>
-      <div class="winner">
-        <div>Who wins this game?</div>
-        <div>-</div>
+      <div class="chooseButtons">
+        <div><button class="shield">Shield</button></div>
+        <div><button class="virus">Virus</button></div>
+        <div><button class="code">Code</button></div>
       </div>
-      <div class="pcBlock">
-        <div>PC</div>
-        <div>0</div>
+      <div class="restart">
+        <button type="button" onClick="window.location.reload()">
+          <img src="./images/restart.png" alt="restart button" width="20" height="auto">
+      </button>
       </div>
-    </div>
-    <div class="chooseButtons">
-      <div><button>Shield</button></div>
-      <div><button>Virus</button></div>
-      <div><button>Code</button></div>
-    </div>
-    <div class="restart">
-      <button type="button" onClick="window.location.reload()">
-        Restart
-     </button>
     </div>
   </body>
 </html>
