@@ -5,8 +5,11 @@ function getComputerChoice () {
   return (resultComputerChoice);
 }
 
-let buttons= document.querySelector('.chooseButtons');
-
+let buttons = document.querySelector('.chooseButtons');
+let playerPoints = document.getElementById('player');
+let pcPoints = document.getElementById('pc');
+let gameWinner = document.getElementById('winner');
+let roundWin = document.getElementById('round');
 
 
 //function getUserChoice () {
@@ -26,6 +29,7 @@ let roundCounter = 0;
 let counterWin = 0;
 let counterLoose = 0;
 let counterDraw = 0;
+let roundWinner;
 
 
 function playRound (userchoice) {
@@ -34,9 +38,6 @@ function playRound (userchoice) {
   let computerPlayer = getComputerChoice();
   console.log("player choose", humanPlayer);
   console.log("PC choose", computerPlayer);
-  let roundWinner;
-  let roundLooser;
-  let roundDraw;
   if (humanPlayer == "Shield" && computerPlayer == "Virus") {
     roundWinner = "You win! Shield beat Virus";
     roundCounter++;
@@ -44,11 +45,11 @@ function playRound (userchoice) {
     console.log(roundWinner);
     return (roundWinner);
   } else if (humanPlayer == "Shield" && computerPlayer == "Code") {
-    roundLooser = "You loose! Shield loose to Code";
+    roundWinner = "You loose! Shield loose to Code";
     roundCounter++;
     counterLoose++;
-    console.log(roundLooser);
-    return (roundLooser);
+    console.log(roundWinner);
+    return (roundWinner);
   } else if (humanPlayer == "Virus" && computerPlayer == "Code") {
     roundWinner = "You win! Virus beat Code";
     roundCounter++;
@@ -56,11 +57,11 @@ function playRound (userchoice) {
     console.log(roundWinner);
     return (roundWinner);
   } else if (humanPlayer == "Virus" && computerPlayer == "Shield") {
-    roundLooser = "You loose! Virus loose to Shield";
+    roundWinner = "You loose! Virus loose to Shield";
     roundCounter++;
     counterLoose++;
-    console.log(roundLooser);
-    return (roundLooser);
+    console.log(roundWinner);
+    return (roundWinner);
   } else if (humanPlayer == "Code" && computerPlayer == "Shield") {
     roundWinner = "You win! Code beat Shield";
     roundCounter++;
@@ -68,29 +69,29 @@ function playRound (userchoice) {
     console.log(roundWinner);
     return (roundWinner);
   } else if (humanPlayer == "Code" && computerPlayer == "Virus") {
-    roundLooser = "You loose! Code loose to Virus";
+    roundWinner = "You loose! Code loose to Virus";
     roundCounter++;
     counterLoose++;
-    console.log(roundLooser);
-    return (roundLooser);
+    console.log(roundWinner);
+    return (roundWinner);
   } else if (humanPlayer == "Shield" && computerPlayer == "Shield") {
-    roundDraw = "Draw for shields!";
+    roundWinner = "Draw for shields!";
     roundCounter++;
     counterDraw++;
-    console.log(roundDraw);
-    return (roundDraw);
+    console.log(roundWinner);
+    return (roundWinner);
   } else if (humanPlayer == "Virus" && computerPlayer == "Virus") {
-    roundDraw = "Draw for virus!";
+    roundWinner = "Draw for virus!";
     roundCounter++;
     counterDraw++;
-    console.log(roundDraw);
-    return (roundDraw);
+    console.log(roundWinner);
+    return (roundWinner);
   } else if (humanPlayer == "Code" && computerPlayer == "Code") {
-    roundDraw = "Draw for Code!";
+    roundWinner = "Draw for Code!";
     roundCounter++;
     counterDraw++;
-    console.log(roundDraw);
-    return (roundDraw);
+    console.log(roundWinner);
+    return (roundWinner);
   } else {
     return "Something went wrong! Let's try again";
   }
@@ -109,25 +110,41 @@ function playRound (userchoice) {
 
 }
 
-buttons.addEventListener('click', function(event) {
+function clickHandler(event) {
   if (event.target.tagName === "BUTTON") {
     let buttonText = event.target.innerText;
 
     playRound(buttonText);
+    console.log("rounds " + roundCounter);
+    console.log("wins " + counterWin);
+    console.log("looses " + counterLoose);
+    console.log("draws " + counterDraw);
     checkWinner();
-}});
+    if (roundCounter === 5) {
+      buttons.removeEventListener('click', clickHandler);
+    }
+    playerPoints.textContent = counterWin;
+    pcPoints.textContent = counterLoose;
+    roundWin.textContent = roundWinner;
+  }
+}
+
+buttons.addEventListener('click', clickHandler);
+
 
 function checkWinner() {
-  if (roundCounter === 5) {
+  if (roundCounter !== 5) {
+    gameWinner.textContent = (`Round ${roundCounter}`);
+  } else {
     if ((counterWin > counterLoose)&&((counterWin>counterDraw)||(counterWin==counterDraw))){
-          console.log("YOU WIN THIS GAME");
-        } else if ((counterLoose>counterWin) && ((counterLoose>counterDraw) || (counterLoose == counterDraw))) {
-          console.log("YOU LOOSE THIS GAME"); 
-        } else if (((counterDraw>counterWin) && (counterDraw>counterLoose))||(counterWin==counterLoose)) {
-          console.log("IT'S A DRAW!");
-        } else {
-          console.log("not enough rounds");
-        }
+      gameWinner.textContent = "YOU WIN THIS GAME";
+    } else if ((counterLoose>counterWin) && ((counterLoose>counterDraw) || (counterLoose == counterDraw))) {
+      gameWinner.textContent = ("YOU LOOSE THIS GAME"); 
+    } else if (((counterDraw>counterWin) && (counterDraw>counterLoose))||(counterWin==counterLoose)) {
+      gameWinner.textContent = ("IT'S A DRAW!");
+    } else {
+      gameWinner.textContent = ("not enough rounds");
+    }
   }
 }
 
