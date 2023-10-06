@@ -39,37 +39,37 @@ function playRound (userchoice) {
   console.log("player choose", humanPlayer);
   console.log("PC choose", computerPlayer);
   if (humanPlayer == "Shield" && computerPlayer == "Virus") {
-    roundWinner = "You win! Shield beat Virus";
+    roundWinner = "You win this round! Shield beat Virus";
     roundCounter++;
     counterWin++;
     console.log(roundWinner);
     return (roundWinner);
   } else if (humanPlayer == "Shield" && computerPlayer == "Code") {
-    roundWinner = "You loose! Shield loose to Code";
+    roundWinner = "You loose this round! Shield loose to Code";
     roundCounter++;
     counterLoose++;
     console.log(roundWinner);
     return (roundWinner);
   } else if (humanPlayer == "Virus" && computerPlayer == "Code") {
-    roundWinner = "You win! Virus beat Code";
+    roundWinner = "You win this round! Virus beat Code";
     roundCounter++;
     counterWin++;
     console.log(roundWinner);
     return (roundWinner);
   } else if (humanPlayer == "Virus" && computerPlayer == "Shield") {
-    roundWinner = "You loose! Virus loose to Shield";
+    roundWinner = "You loose this round! Virus loose to Shield";
     roundCounter++;
     counterLoose++;
     console.log(roundWinner);
     return (roundWinner);
   } else if (humanPlayer == "Code" && computerPlayer == "Shield") {
-    roundWinner = "You win! Code beat Shield";
+    roundWinner = "You win this round! Code beat Shield";
     roundCounter++;
     counterWin++;
     console.log(roundWinner);
     return (roundWinner);
   } else if (humanPlayer == "Code" && computerPlayer == "Virus") {
-    roundWinner = "You loose! Code loose to Virus";
+    roundWinner = "You loose this round! Code loose to Virus";
     roundCounter++;
     counterLoose++;
     console.log(roundWinner);
