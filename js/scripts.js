@@ -137,11 +137,11 @@ function checkWinner() {
     gameWinner.textContent = (`Round ${roundCounter}`);
   } else {
     if ((counterWin > counterLoose)&&((counterWin>counterDraw)||(counterWin==counterDraw))){
-      gameWinner.textContent = "YOU WIN THIS GAME";
+      gameWinner.textContent = "YOU WIN THIS GAME :)";
     } else if ((counterLoose>counterWin) && ((counterLoose>counterDraw) || (counterLoose == counterDraw))) {
-      gameWinner.textContent = ("YOU LOOSE THIS GAME"); 
+      gameWinner.textContent = "YOU LOOSE THIS GAME :("; 
     } else if (((counterDraw>counterWin) && (counterDraw>counterLoose))||(counterWin==counterLoose)) {
-      gameWinner.textContent = ("IT'S A DRAW!");
+      gameWinner.textContent = ("IT'S A DRAW! :|");
     } else {
       gameWinner.textContent = ("not enough rounds");
     }
