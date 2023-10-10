@@ -5,7 +5,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('/images/background.png');
+    background-image: url('../images/background.png');
     background-size: cover; 
     background-position: center center; 
     background-attachment: fixed; 
@@ -20,7 +20,7 @@ html {
 
 
 .displayResults {
-    background-color: rgba(0, 255, 255, 0.562);
+    background-color: rgba(253, 255, 255, 0.664);
     font-size: 20px;
     display: flex;
     gap: 150px;
@@ -34,6 +34,8 @@ html {
     align-items: center;
     min-height: 350px;
     border-radius: 10px;
+    flex-wrap: wrap;
+
 }
 
 .chooseButtons {
